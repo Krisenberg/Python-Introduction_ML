@@ -50,5 +50,5 @@ ax[1].legend(loc = 'lower right')
 
 # dodajemy tytuł
 plt.suptitle("Funkcje wygenerowane w 'numpy' i wykreślone w 'matplotlib'")
-directory = "C:/Users/Kris/Documents/Studia/Semestr_IV/MSiD_L/Lab_2/"
+directory = "C:/"
 plt.savefig(directory + "Wykres_KG.png")
