@@ -42,6 +42,12 @@ def get_quality_factors(
     :return: a tuple of TN, FP, FN, TP
     """
     control_list = [(elem_true - elem_pred, elem_true * elem_pred) for (elem_true, elem_pred) in zip(y_true, y_pred)]
+    TN = sum((1 for diff_prod_tuple in control_list if diff_prod_tuple==(0,0)))
+    FP = sum((1 for diff_prod_tuple in control_list if diff_prod_tuple==(-1,0)))
+    FN = sum((1 for diff_prod_tuple in control_list if diff_prod_tuple==(1,0)))
+    TP = sum((1 for diff_prod_tuple in control_list if diff_prod_tuple==(0,1)))
+
+    return (TN, FP, FN, TP)
 
 
 def accuracy_score(y_true: List[int], y_pred: List[int]) -> float:
@@ -52,7 +58,14 @@ def accuracy_score(y_true: List[int], y_pred: List[int]) -> float:
 
     :return: accuracy score
     """
-    ...
+    
+    """
+    Accuracy is how close a given set of measurements (observations or readings)
+    are to their true value.
+    """
+    (TN, FP, FN, TP) = get_quality_factors(y_true, y_pred)
+    ACC = (TP + TN) / sum((TN, FP, FN, TP))
+    return ACC
 
 
 def precision_score(y_true: List[int], y_pred: List[int]) -> float:
@@ -63,7 +76,15 @@ def precision_score(y_true: List[int], y_pred: List[int]) -> float:
 
     :return: precision score
     """
-    ...
+
+    """
+    The positive predictive value (PPV) is the proportion 
+    of true positives and the sum of true positives and false positives.
+    """
+
+    (TN, FP, FN, TP) = get_quality_factors(y_true, y_pred)
+    PPV = TP / (TP + FP)
+    return PPV
 
 
 def recall_score(y_true: List[int], y_pred: List[int]) -> float:
@@ -74,7 +95,15 @@ def recall_score(y_true: List[int], y_pred: List[int]) -> float:
 
     :return: recall score
     """
-    ...
+
+    """
+    The true positive rate (TPR) is the proportion 
+    of true positives and the sum of true positives and false negatives.
+    """
+
+    (TN, FP, FN, TP) = get_quality_factors(y_true, y_pred)
+    TPR = TP / (TP + FN)
+    return TPR
 
 
 def f1_score(y_true: List[int], y_pred: List[int]) -> float:
@@ -85,4 +114,16 @@ def f1_score(y_true: List[int], y_pred: List[int]) -> float:
 
     :return: F1-score
     """
-    ...
+
+    """
+    The F1 score is the harmonic mean of the precision and recall.
+    It thus symmetrically represents both precision and recall in one metric.
+    """
+    # PPV = precision_score(y_true, y_pred)
+    # TPR = recall_score(y_true, y_pred)
+    # F_1 = 2 * ((PPV * TPR) / (PPV + TPR))
+    # return F_1
+    (TN, FP, FN, TP) = get_quality_factors(y_true, y_pred)
+    F_1 = (2 * TP) / (2 * TP + FP + FN)
+    return F_1
+
