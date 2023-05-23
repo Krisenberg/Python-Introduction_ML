@@ -38,7 +38,7 @@ def constr_flesh(decision_vars: Tuple[float, float]) -> float:
 
 def constr_filler(decision_vars: Tuple[float, float]) -> float:
     """Constraint according to substrate: filler."""
-    x_1, x_2 = decision_vars
+    x_1, _ = decision_vars
     return CONSTR_FILLER - (1/3)*x_1
 
 
