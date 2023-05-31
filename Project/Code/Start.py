@@ -46,23 +46,30 @@ The easiest way to find them is to type: '<country name>, Long-term interest rat
 and choose the link from the mentioned website.
 """
 stock_prices_filters = {
-    'Poland': None,
-    'Greece': DataPreprocessing.greeceStockIndex,
-    'Latvia': DataPreprocessing.latviaStockIndex,
-    'Portugal': None,
-    'Lithuania': None,
-    'Slovakia': None,
-    'Spain': None,
-    'Slovenia': None
+    'Poland': DataPreprocessing.wsjAPIStockIndex,
+    'Greece': DataPreprocessing.wsjAPIStockIndex,
+    'Latvia': DataPreprocessing.investingAPIStockIndex,
+    'Portugal': DataPreprocessing.investingAPIStockIndex,
+    'Lithuania': DataPreprocessing.investingAPIStockIndex,
+    'Slovakia': DataPreprocessing.investingAPIStockIndex,
+    'Spain': DataPreprocessing.investingAPIStockIndex,
+    'Slovenia': DataPreprocessing.ljseAPIStockIndex
 }
 
 def prepareAllData():
-    # for country_name in stock_prices_filters.keys():
-    #     DataPreprocessing.prepareData(country_name)
+    for country_name in stock_prices_filters.keys():
+        result = DataPreprocessing.prepareData(country_name, data_files_names, stock_prices_filters, new_csv_headers)
+        print(result[1])
     # result = DataPreprocessing.prepareData('Greece', data_files_names, stock_prices_filters, new_csv_headers)
     # print(result[1])
-    result = DataPreprocessing.prepareData('Latvia', data_files_names, stock_prices_filters, new_csv_headers)
-    print(result[1])
+    # result = DataPreprocessing.prepareData('Latvia', data_files_names, stock_prices_filters, new_csv_headers)
+    # print(result[1])
+    # result = DataPreprocessing.prepareData('Portugal', data_files_names, stock_prices_filters, new_csv_headers)
+    # print(result[1])
+    # result = DataPreprocessing.prepareData('Poland', data_files_names, stock_prices_filters, new_csv_headers)
+    # print(result[1])
+    # result = DataPreprocessing.prepareData('Slovenia', data_files_names, stock_prices_filters, new_csv_headers)
+    # print(result[1])
 
 if __name__ == '__main__':
     prepareAllData()

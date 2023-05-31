@@ -43,7 +43,8 @@ def inflationToCsv(data_dir_path: str) -> None:
     step = 1 if stop >= start else -1
     stop_index = stop + 1 if stop >= start else stop - 1
     filteredData = [data['Value'][i] for i in range (start, stop_index, step)]
-    preparedData = pd.DataFrame([(100 * (filteredData[i]/filteredData[i-1]))-100 for i in range(1, len(filteredData))])
+    # preparedData = pd.DataFrame([(100 * (filteredData[i]/filteredData[i-1]))-100 for i in range(1, len(filteredData))])
+    preparedData = pd.DataFrame([filteredData[i] - filteredData[i-1] for i in range(1, len(filteredData))])
     filepath = Path(data_dir_path + '2.csv')
     preparedData.to_csv(filepath, index=False, header=False)
 
@@ -59,7 +60,8 @@ def unemploymentToCsv(data_dir_path: str) -> None:
     step = 1 if stop >= start else -1
     stop_index = stop + 1 if stop >= start else stop - 1
     filteredData = [data['Value'][i] for i in range(start, stop_index, step)]
-    preparedData = pd.DataFrame([(100 * (filteredData[i]/filteredData[i-1]))-100 for i in range(1, len(filteredData))])
+    # preparedData = pd.DataFrame([(100 * (filteredData[i]/filteredData[i-1]))-100 for i in range(1, len(filteredData))])
+    preparedData = pd.DataFrame([filteredData[i] - filteredData[i-1] for i in range(1, len(filteredData))])
     filepath = Path(data_dir_path + '3.csv')
     preparedData.to_csv(filepath, index=False, header=False)
 
@@ -74,15 +76,16 @@ def interestRatesToCsv(data_dir_path: str) -> None:
     stop = data['date'].values.tolist().index('2022-12-31')
     step = 1 if stop >= start else -1
     stop_index = stop + 1 if stop >= start else stop - 1
-    filteredData = [data['s1'][i] if not data['s1'][i]==0 else 0.009 for i in range(start, stop_index, step)]
+    # filteredData = [data['s1'][i] if not data['s1'][i]==0 else 0.009 for i in range(start, stop_index, step)]
     # recalculatedData = [(100 * (filteredData[i]/filteredData[i-1]))-100 for i in range(1, len(filteredData))]
     # preparedData = pd.DataFrame([recalculatedData[i] if abs(recalculatedData[i])<=100 else recalculatedData[i]//100 for i in range(len(recalculatedData))])
+    filteredData = [data['s1'][i] for i in range(start, stop_index, step)]
     recalculatedData = [filteredData[i] - filteredData[i-1] for i in range(1, len(filteredData))]
     preparedData = pd.DataFrame(recalculatedData)
     filepath = Path(data_dir_path + '4.csv')
     preparedData.to_csv(filepath, index=False, header=False)
 
-def greeceStockIndex(data_dir_path: str) -> None:
+def wsjAPIStockIndex(data_dir_path: str) -> None:
     data = pd.read_csv(data_dir_path + "StockIndex.csv") 
     computedData = []
     stock_dates = data['Date'].values.tolist()
@@ -102,8 +105,29 @@ def greeceStockIndex(data_dir_path: str) -> None:
     filepath = Path(data_dir_path + '5.csv')
     preparedData.to_csv(filepath, index=False, header=False)
 
-def latviaStockIndex(data_dir_path: str) -> None:
+
+def ljseAPIStockIndex(data_dir_path: str) -> None:
     data = pd.read_csv(data_dir_path + "StockIndex.csv") 
+    computedData = []
+    stock_dates = data['date'].values.tolist()
+    index = len(stock_dates)-1
+    
+    for year in range(18,23):
+        for month in range(1,13):
+            first = index
+            while(index > 0 and not (datetime.strptime(stock_dates[index-1],"%Y-%m-%d").year > datetime.strptime(stock_dates[index],"%Y-%m-%d").year or datetime.strptime(stock_dates[index-1],"%Y-%m-%d").month > datetime.strptime(stock_dates[index],"%Y-%m-%d").month)):
+                index -= 1
+            last = index
+            change = (data["last_value"][last]/data["open_value"][first])*100 - 100
+            computedData.append(change)
+            index -= 1
+
+    preparedData = pd.DataFrame(computedData)
+    filepath = Path(data_dir_path + '5.csv')
+    preparedData.to_csv(filepath, index=False, header=False)
+
+def investingAPIStockIndex(data_dir_path: str) -> None:
+    data = pd.read_csv(data_dir_path + "StockIndex.csv")
     computedData = []
     stock_dates = data['Date'].values.tolist()
     index = len(stock_dates)-1
@@ -114,15 +138,40 @@ def latviaStockIndex(data_dir_path: str) -> None:
             while(index > 0 and not (datetime.strptime(stock_dates[index-1],"%m/%d/%Y").year > datetime.strptime(stock_dates[index],"%m/%d/%Y").year or datetime.strptime(stock_dates[index-1],"%m/%d/%Y").month > datetime.strptime(stock_dates[index],"%m/%d/%Y").month)):
                 index -= 1
             last = index
-            close_price_str = data["Price"][last].replace(',', '')
-            open_price_str = data["Open"][first].replace(',', '')
-            change = (float(close_price_str)/float(open_price_str))*100 - 100
+            if isinstance(data["Price"][last], str):
+                close_price = data["Price"][last].replace(',', '')
+                open_price = data["Open"][first].replace(',', '')
+            else:
+                close_price = data["Price"][last]
+                open_price = data["Open"][first]
+            change = (float(close_price)/float(open_price))*100 - 100
             computedData.append(change)
             index -= 1
 
     preparedData = pd.DataFrame(computedData)
     filepath = Path(data_dir_path + '5.csv')
     preparedData.to_csv(filepath, index=False, header=False)
+
+# def portugalStockIndex(data_dir_path: str) -> None:
+#     data = pd.read_csv(data_dir_path + "StockIndex.csv") 
+#     computedData = []
+#     stock_dates = data['Date'].values.tolist()
+#     index = 0
+    
+#     for year in range(18,23):
+#         for month in range(1,13):
+#             first = index
+#             while(index < len(stock_dates)-1 and not (data["Adj Close"][index]=='nan') and not (data["Open"][index]=='nan') and not (datetime.strptime(stock_dates[index+1],"%Y-%m-%d").year > datetime.strptime(stock_dates[index],"%Y-%m-%d").year or datetime.strptime(stock_dates[index+1],"%Y-%m-%d").month > datetime.strptime(stock_dates[index],"%Y-%m-%d").month)):
+#                 index += 1
+#             last = index
+#             change = (data["Adj Close"][last]/data["Open"][first])*100 - 100
+#             computedData.append(change)
+#             index += 1
+
+#     preparedData = pd.DataFrame(computedData)
+#     filepath = Path(data_dir_path + '5.csv')
+#     preparedData.to_csv(filepath, index=False, header=False)
+
 
 def mergeData(data_dir_path: str, country_name: str, headers: List[str]) -> None:
     """

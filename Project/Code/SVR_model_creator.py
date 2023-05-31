@@ -32,9 +32,9 @@ def plot5Dchart(data, countryName):
     min_interest_rate = min(data['Interest rates change (%)'])
     sizes = []
     if min_interest_rate < 0:
-        sizes = [float(data['Interest rates change (%)'][i]+abs(min_interest_rate)+0.01)*10 for i in range(len(data['Interest rates change (%)']))]
+        sizes = [float((data['Interest rates change (%)'][i]+abs(min_interest_rate)+0.01))*500 for i in range(len(data['Interest rates change (%)']))]
     else:
-        sizes = [float(data['Interest rates change (%)'][i])*10 for i in range(len(data['Interest rates change (%)']))]
+        sizes = [float(data['Interest rates change (%)'][i])*500 for i in range(len(data['Interest rates change (%)']))]
     colors = [float(data['Unemployment change (%)'][i]) for i in range(len(data['Unemployment change (%)']))]
 
     cmap = plt.colormaps.get_cmap('viridis')
@@ -116,8 +116,8 @@ def create_model(countryName):
     return best_model
 
 if __name__ == "__main__":
-    # create_model("Portugal")
+    create_model("Portugal")
     # create_model("Slovenia")
     # create_model("Spain")
     # create_model("Greece")
-    create_model("Latvia")
+    # create_model("Latvia")
