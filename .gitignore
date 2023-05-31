@@ -20,3 +20,6 @@ Lab_6/optymalizacja.ipynb
 Lab_6/__pycache__/test_optimisation_problem.cpython-311-pytest-7.2.2.pyc
 Lab_6/__pycache__/optimisation_problem.cpython-311.pyc
 Lab_7/optymalizacja_2.ipynb
+*.png
+*.docx
+*.csv
