@@ -198,32 +198,23 @@ def mergeData(data_dir_path: str, country_name: str, headers: Dict[int, str], nu
     merged_df.to_csv(mergedFile, index=False, header=list(headers.values()))
 
 
-def prepareData(country_name: str, expected_file_names: Dict[int, str], data_features_functions: Dict[int, Callable],
-                stock_prices_filter: Callable, new_csv_headers: Dict[int, str]) -> Tuple[bool, str]:
+def prepareData(data_dir_path: str, country_name: str, expected_file_names: Dict[int, str], 
+                data_features_functions: Dict[int, Callable], stock_prices_filter: Callable,
+                new_csv_headers: Dict[int, str]) -> Tuple[bool, str]:
 
     """
     Function that prepares all data - it checks if data is present, prepares every column by
     filtering and calculations and merges all columns into the single csv file.
     """
 
-    data_dir_path = (os.environ.get('DATA_PATH')) if os.environ.get('DATA_PATH', '') != '' else None
-
-    # check if DATA_PATH is set correctly
-    if data_dir_path is not None:
-        data_dir_path += (country_name+"\\")
-        data_existence = dataExists(data_dir_path, set(expected_file_names.values()))
-        # check if all neded data is available
-        if not data_existence[0]:
-            return data_existence
-
-        for number in data_features_functions.keys():
-            data_features_functions[number](data_dir_path, expected_file_names[number], number)
-
-        # call the function that filters stock index data from that country
-        stock_prices_filter(data_dir_path)
-
-        mergeData(data_dir_path, country_name, new_csv_headers, len(data_features_functions.keys()))
-        return (True, f'Data has been succesfully preprocessed for: {country_name}')
-
-    else:
-        return (False, 'DATA_PATH variable is not set')
+    data_dir_path += (country_name+"\\")
+    data_existence = dataExists(data_dir_path, set(expected_file_names.values()))
+    # check if all needed data is available
+    if not data_existence[0]:
+        return data_existence
+    for number in data_features_functions.keys():
+        data_features_functions[number](data_dir_path, expected_file_names[number], number)
+    # call the function that filters stock index data from that country
+    stock_prices_filter(data_dir_path)
+    mergeData(data_dir_path, country_name, new_csv_headers, len(data_features_functions.keys()))
+    return (True, f'Data has been succesfully preprocessed for: {country_name}')
