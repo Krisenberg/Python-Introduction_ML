@@ -42,6 +42,17 @@ new_csv_headers = {
     5: 'Stock Index change (%)'
 }
 
+colors_countries = {
+    'Poland': 'ro',
+    'Greece': 'bo',
+    'Latvia': 'bo',
+    'Portugal': 'bo',
+    'Lithuania': 'bo',
+    'Slovakia': 'bo',
+    'Spain': 'bo',
+    'Slovenia': 'bo'
+}
+
 """
 This is a dictionary which assigns the proper function to the country. That function
 does a data preprocessing on Stock Market Data, since for each country this data may be
@@ -109,18 +120,25 @@ def createSVRModels(data_dir_path:str) -> Dict[str, Tuple[SVR, StandardScaler]]:
     text_file = results_dir + text_file_results
     country_SVR_dict = {}
     open(text_file, 'w').close()
+    data_to_predict = [[1.5,0.2,0.02,0.15],
+                       [0.5,1.5,0.01,-0.24],
+                       [-1,0,0.6,-0.01],
+                       [-0.85,-2.1,0.8,0.35]]
     for country_name in stock_prices_filters.keys():
         country_SVR_dict[country_name] = SVRmodelCreator.create_model(data_dir_path, country_name,
                                                                       new_csv_headers, text_file)
+        print(f'{country_name}: {country_SVR_dict[country_name][0].predict(country_SVR_dict[country_name][1].transform(data_to_predict))}')
     return country_SVR_dict
 
 
 def predictValues(data_dir_path:str, models: Dict[str, Tuple[SVR, StandardScaler]]) -> None:
     results_dir = data_dir_path+dir_for_results
     chart_file = results_dir + result_chart
-    data_to_predict = [[1,2,3,4],
-                       [0.5,1.5,2.5,3.5]]
-    Predictor.predict(models, data_to_predict,chart_file,chart_file)
+    data_to_predict = [[1.5,0.2,0.02,0.15],
+                       [0.5,1.5,0.01,-0.24],
+                       [-1,0,0.6,-0.01],
+                       [-0.85,-2.1,0.8,0.35]]
+    Predictor.predict(models, data_to_predict,chart_file,chart_file, colors_countries)
     
 
 def run() -> None:

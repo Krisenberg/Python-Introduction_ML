@@ -29,6 +29,7 @@ def create_model(data_dir_path: str, countryName: str, csv_headers: Dict[int, st
     # scaler_y = StandardScaler()
     # scaler_X.fit(X_train)
     X_train_scaled = scaler_X.fit_transform(X_train)
+    X_test_scaled = scaler_X.transform(X_test)
 
 
     # Create and train the SVR model
@@ -37,7 +38,7 @@ def create_model(data_dir_path: str, countryName: str, csv_headers: Dict[int, st
 
     # Make predictions
     #y_pred = svr_model.predict(X_test_scaled)
-    X_test_scaled = scaler_X.transform(X_test)
+    #X_test_scaled = scaler_X.transform(X_test)
     y_pred = svr_model.predict(X_test_scaled)
     file_to_write.write('------------------------------------------------------------')
     file_to_write.write(f"Adjusting SVR model for {countryName}")
