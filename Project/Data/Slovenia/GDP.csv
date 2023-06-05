@@ -1,2 +1,21 @@
-"TRANSACTIONS","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2018Q1","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2018Q2","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2018Q3","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2018Q4","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2019Q1","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2019Q2","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2019Q3","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2019Q4","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2020Q1","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2020Q2","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2020Q3","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2020Q4","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2021Q1","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2021Q2","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2021Q3","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2021Q4","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2022Q1","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2022Q2","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2022Q3","Volume growth rate compared to the previous quarter (%) Seasonally adjusted data 2022Q4"
-"Gross domestic product",0.0,1.3,1.4,1.2,0.6,-0.4,1.6,1.2,-4.7,-9.8,13.0,-1.3,1.8,2.0,2.9,3.4,1.2,0.7,-1.3,0.7
+﻿"LOCATION","INDICATOR","SUBJECT","MEASURE","FREQUENCY","TIME","Value","Flag Codes"
+"SVN","QGDP","TOT","PC_CHGPP","Q","2018-Q1",0.017303938,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2018-Q2",1.361750026,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2018-Q3",1.360489482,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2018-Q4",1.197778768,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2019-Q1",0.600341684,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2019-Q2",-0.348842189,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2019-Q3",1.637562552,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2019-Q4",1.195492999,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2020-Q1",-4.750814696,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2020-Q2",-9.736607524,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2020-Q3",12.975616642,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2020-Q4",-1.262466085,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2021-Q1",1.722026132,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2021-Q2",1.985756447,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2021-Q3",2.885785586,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2021-Q4",3.385208508,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2022-Q1",1.037738005,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2022-Q2",0.700328983,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2022-Q3",-1.300353832,
+"SVN","QGDP","TOT","PC_CHGPP","Q","2022-Q4",0.700042066,

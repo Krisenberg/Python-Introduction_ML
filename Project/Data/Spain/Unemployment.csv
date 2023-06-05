@@ -1,26 +1,62 @@
-﻿Variable1;Valor1;Variable2;Valor2;Variable3;Valor3;Variable4;Valor4;PERIODO;VALOR
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2023T1;13,26
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2022T4;12,87
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2022T3;12,67
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2022T2;12,48
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2022T1;13,65
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2021T4;13,33
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2021T3;14,57
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2021T2;15,26
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2021T1;15,98
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2020T4;16,13
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2020T3;16,26
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2020T2;15,33
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2020T1;14,41
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2019T4;13,78
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2019T3;13,92
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2019T2;14,02
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2019T1;14,70
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2018T4;14,45
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2018T3;14,55
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2018T2;15,28
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2018T1;16,74
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2017T4;16,55
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2017T3;16,38
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2017T2;17,22
-Tipo de dato;Tasa de paro de la población;Sexo;Ambos sexos;Total Nacional;Total Nacional;Semiintervalos de edad;16 y más años;2017T1;18,75
+﻿"LOCATION","INDICATOR","SUBJECT","MEASURE","FREQUENCY","TIME","Value","Flag Codes"
+"ESP","HUR","TOT","PC_LF","M","2017-12",16.6,
+"ESP","HUR","TOT","PC_LF","M","2018-01",16.5,
+"ESP","HUR","TOT","PC_LF","M","2018-02",16.3,
+"ESP","HUR","TOT","PC_LF","M","2018-03",16,
+"ESP","HUR","TOT","PC_LF","M","2018-04",15.7,
+"ESP","HUR","TOT","PC_LF","M","2018-05",15.5,
+"ESP","HUR","TOT","PC_LF","M","2018-06",15.2,
+"ESP","HUR","TOT","PC_LF","M","2018-07",15,
+"ESP","HUR","TOT","PC_LF","M","2018-08",14.8,
+"ESP","HUR","TOT","PC_LF","M","2018-09",14.7,
+"ESP","HUR","TOT","PC_LF","M","2018-10",14.6,
+"ESP","HUR","TOT","PC_LF","M","2018-11",14.5,
+"ESP","HUR","TOT","PC_LF","M","2018-12",14.4,
+"ESP","HUR","TOT","PC_LF","M","2019-01",14.3,
+"ESP","HUR","TOT","PC_LF","M","2019-02",14.2,
+"ESP","HUR","TOT","PC_LF","M","2019-03",14.2,
+"ESP","HUR","TOT","PC_LF","M","2019-04",14.2,
+"ESP","HUR","TOT","PC_LF","M","2019-05",14.2,
+"ESP","HUR","TOT","PC_LF","M","2019-06",14.2,
+"ESP","HUR","TOT","PC_LF","M","2019-07",14.2,
+"ESP","HUR","TOT","PC_LF","M","2019-08",14.1,
+"ESP","HUR","TOT","PC_LF","M","2019-09",14,
+"ESP","HUR","TOT","PC_LF","M","2019-10",13.9,
+"ESP","HUR","TOT","PC_LF","M","2019-11",13.9,
+"ESP","HUR","TOT","PC_LF","M","2019-12",13.8,
+"ESP","HUR","TOT","PC_LF","M","2020-01",13.9,
+"ESP","HUR","TOT","PC_LF","M","2020-02",13.6,
+"ESP","HUR","TOT","PC_LF","M","2020-03",14.5,
+"ESP","HUR","TOT","PC_LF","M","2020-04",15.2,
+"ESP","HUR","TOT","PC_LF","M","2020-05",15.5,
+"ESP","HUR","TOT","PC_LF","M","2020-06",15.9,
+"ESP","HUR","TOT","PC_LF","M","2020-07",16.2,
+"ESP","HUR","TOT","PC_LF","M","2020-08",16.5,
+"ESP","HUR","TOT","PC_LF","M","2020-09",16.4,
+"ESP","HUR","TOT","PC_LF","M","2020-10",16.3,
+"ESP","HUR","TOT","PC_LF","M","2020-11",16.2,
+"ESP","HUR","TOT","PC_LF","M","2020-12",16.2,
+"ESP","HUR","TOT","PC_LF","M","2021-01",15.8,
+"ESP","HUR","TOT","PC_LF","M","2021-02",15.6,
+"ESP","HUR","TOT","PC_LF","M","2021-03",15.3,
+"ESP","HUR","TOT","PC_LF","M","2021-04",15.5,
+"ESP","HUR","TOT","PC_LF","M","2021-05",15.5,
+"ESP","HUR","TOT","PC_LF","M","2021-06",15.4,
+"ESP","HUR","TOT","PC_LF","M","2021-07",15.1,
+"ESP","HUR","TOT","PC_LF","M","2021-08",14.7,
+"ESP","HUR","TOT","PC_LF","M","2021-09",14.2,
+"ESP","HUR","TOT","PC_LF","M","2021-10",13.7,
+"ESP","HUR","TOT","PC_LF","M","2021-11",13.4,
+"ESP","HUR","TOT","PC_LF","M","2021-12",13.3,
+"ESP","HUR","TOT","PC_LF","M","2022-01",13.3,
+"ESP","HUR","TOT","PC_LF","M","2022-02",13.2,
+"ESP","HUR","TOT","PC_LF","M","2022-03",13.2,
+"ESP","HUR","TOT","PC_LF","M","2022-04",12.9,
+"ESP","HUR","TOT","PC_LF","M","2022-05",12.6,
+"ESP","HUR","TOT","PC_LF","M","2022-06",12.6,
+"ESP","HUR","TOT","PC_LF","M","2022-07",12.6,
+"ESP","HUR","TOT","PC_LF","M","2022-08",12.7,
+"ESP","HUR","TOT","PC_LF","M","2022-09",12.9,
+"ESP","HUR","TOT","PC_LF","M","2022-10",13,
+"ESP","HUR","TOT","PC_LF","M","2022-11",13,
+"ESP","HUR","TOT","PC_LF","M","2022-12",13,

@@ -1,21 +1,21 @@
-Series;Series description (EN);Metric;Unit of Measure;Reference date;Value;State
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2018-03-31;0.7;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2018-06-30;0.8;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2018-09-30;0.5;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2018-12-31;0.6;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2019-03-31;0.9;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2019-06-30;0.6;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2019-09-30;0.5;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2019-12-31;0.8;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2020-03-31;-4.4;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2020-06-30;-15.1;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2020-09-30;14.6;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2020-12-31;0.4;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2021-03-31;-2.6;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2021-06-30;4.4;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2021-09-30;2.8;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2021-12-31;1.9;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2022-03-31;2.3;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2022-06-30;0.2;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2022-09-30;0.3;
-12518293;GDP at market prices-Quarterly-Chained volume-cr (sca);Chain rate of change;Percentage;2022-12-31;0.3;
+﻿"LOCATION","INDICATOR","SUBJECT","MEASURE","FREQUENCY","TIME","Value","Flag Codes"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2018-Q1",0.727368109,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2018-Q2",0.779536523,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2018-Q3",0.525723942,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2018-Q4",0.608994992,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2019-Q1",0.882987755,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2019-Q2",0.571006817,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2019-Q3",0.451880731,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2019-Q4",0.820784598,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2020-Q1",-4.355487705,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2020-Q2",-15.119496961,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2020-Q3",14.588001222,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2020-Q4",0.370563245,
+"PRT","QGDP","TOT","PC_CHGPP","Q","2021-Q1",-2.559961929,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2021-Q2",4.42617467,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2021-Q3",2.802834928,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2021-Q4",1.927325071,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2022-Q1",2.257281257,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2022-Q2",0.194374815,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2022-Q3",0.333394312,"P"
+"PRT","QGDP","TOT","PC_CHGPP","Q","2022-Q4",0.349849199,"P"
