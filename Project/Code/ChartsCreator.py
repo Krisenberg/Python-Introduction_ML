@@ -36,7 +36,6 @@ def plot5Dchart(data_dir_path: str, countryName: str, dir_for_charts: str, new_c
     cax_pos = cax.get_position()
     cax.set_position([cax_pos.x0+0.1, cax_pos.y0+0.1, cax_pos.width * 0.6, cax_pos.height * 0.6])
 
-
     ax.set_xlabel(new_csv_headers[1])
     ax.set_ylabel(new_csv_headers[2])
     ax.set_zlabel(new_csv_headers[5])

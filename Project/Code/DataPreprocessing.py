@@ -198,6 +198,19 @@ def mergeData(data_dir_path: str, country_name: str, headers: Dict[int, str], nu
     merged_df.to_csv(mergedFile, index=False, header=list(headers.values()))
 
 
+def prepareGeneralData(data_dir_path: str, stock_prices_filters: Dict[str, Callable],
+                       headers: Dict[int, str], general_dict: str) -> None:
+
+    general_df = pd.DataFrame()
+    for country_name in stock_prices_filters.keys():
+        temp_file_path = data_dir_path + (f"{country_name}\\{country_name}_data.csv")
+        data = pd.read_csv(temp_file_path, skiprows=1, header=None)
+        general_df = pd.concat([general_df, data], axis=0)
+
+    generalFile = Path(data_dir_path + general_dict +  'general_data.csv')
+    general_df.to_csv(generalFile, index=False, header=list(headers.values()))
+
+
 def prepareData(data_dir_path: str, country_name: str, expected_file_names: Dict[int, str], 
                 data_features_functions: Dict[int, Callable], stock_prices_filter: Callable,
                 new_csv_headers: Dict[int, str]) -> Tuple[bool, str]:
