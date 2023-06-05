@@ -23,7 +23,6 @@ dir_for_general = 'General\\'
 dir_for_eda = 'EDA\\'
 text_file_results = 'Models_adjusting.txt'
 result_chart = 'Comparison.png'
-# eda_file='eda.html'
 
 data_files_names = {
     1: 'GDP.csv',
@@ -57,14 +56,13 @@ colors_countries = {
     'Slovakia': 'bo',
     'Spain': 'bo',
     'Slovenia': 'bo',
-    'Poland2': 'ro',
-    #'Test': 'bo'
+    # 'Poland2': 'ro'
 }
 
 """
-This is a dictionary which assigns the proper function to the country. That function
-does a data preprocessing on Stock Market Data, since for each country this data may be
-downloaded in a different format.
+This is a dictionary which assigns the proper function to the country. That
+function does a data preprocessing on Stock Market Data, since for each country
+this data may be downloaded in a different format.
 Every other data used in this project has a common source:
 
 - all values of GDP change come from:
@@ -91,8 +89,7 @@ stock_prices_filters = {
     'Slovakia': DataPreprocessing.investingAPIStockIndex,
     'Spain': DataPreprocessing.investingAPIStockIndex,
     'Slovenia': DataPreprocessing.ljseAPIStockIndex,
-    #'Poland2': None,
-    #'Test': None
+    # 'Poland2': None
 }
 
 
@@ -100,8 +97,10 @@ def prepareAllData(data_dir_path: str) -> bool:
     flag = True
 
     for country_name in stock_prices_filters.keys():
-        result = DataPreprocessing.prepareData(data_dir_path, country_name, data_files_names, data_features_functions,
-                                               stock_prices_filters[country_name], new_csv_headers)
+        result = DataPreprocessing.prepareData(data_dir_path, country_name,
+                                               data_files_names, data_features_functions,
+                                               stock_prices_filters[country_name],
+                                               new_csv_headers)
         print(result[1])
         if not result[0]:
             flag = False
@@ -109,7 +108,8 @@ def prepareAllData(data_dir_path: str) -> bool:
     general_directory = data_dir_path+dir_for_general
     if not os.path.isdir(general_directory):
         os.mkdir(general_directory)
-    DataPreprocessing.prepareGeneralData(data_dir_path, stock_prices_filters,new_csv_headers,dir_for_general)
+    DataPreprocessing.prepareGeneralData(data_dir_path, stock_prices_filters,
+                                         new_csv_headers, dir_for_general)
 
     if flag:
         print("\nData is ready.")
@@ -137,7 +137,7 @@ def visualiseData(data_dir_path: str) -> None:
         ChartsCreator.plotHistogram(data_dir_path, country_name, dir_for_charts)
 
 
-def createSVRModels(data_dir_path:str) -> Dict[str, Tuple[Any, float, StandardScaler]]:
+def createSVRModels(data_dir_path: str) -> Dict[str, Tuple[Any, float, StandardScaler]]:
     results_dir = data_dir_path+dir_for_results
     if not os.path.isdir(results_dir):
         os.mkdir(results_dir)
@@ -150,36 +150,37 @@ def createSVRModels(data_dir_path:str) -> Dict[str, Tuple[Any, float, StandardSc
     return country_SVR_dict
 
 
-def predictValues(data_dir_path:str, models: Dict[str, Tuple[Any, float, StandardScaler]]) -> None:
+def predictValues(data_dir_path: str, models: Dict[str, Tuple[Any, float, StandardScaler]]) -> None:
     results_dir = data_dir_path+dir_for_results
     chart_file = results_dir + result_chart
-    data_to_predict = [[random.uniform(-2.5, 2.5), random.uniform(-4, 4), random.uniform(-0.75, 0.75), random.uniform(-1, 1)] for _ in range(40)]
-    Predictor.predict(models, data_to_predict,chart_file, colors_countries)
-    
+    data_to_predict = [[random.uniform(-2.5, 2.5), random.uniform(-4, 4),
+                        random.uniform(-0.75, 0.75), random.uniform(-1, 1)]
+                        for _ in range(40)]
+    Predictor.predict(models, data_to_predict, chart_file, colors_countries)
+
 
 def run() -> None:
     data_dir_path = (os.environ.get('DATA_PATH')) if os.environ.get('DATA_PATH', '') != '' else None
 
     # check if DATA_PATH is set correctly
     if data_dir_path is not None:
-        # data_state = prepareAllData(data_dir_path)
-        # if not data_state:
-        #     print('Program terminates. Data is not prepared for the further analysis.')
+        data_state = prepareAllData(data_dir_path)
+        if not data_state:
+            print('Program terminates. Data is not prepared for the further analysis.')
 
-        # prepareEDA(data_dir_path)
-        # print('\n\nEDA is finished.')
-        # print('See the results in the directory specified in the configuration above.')
+        prepareEDA(data_dir_path)
+        print('\n\nEDA is finished.')
+        print('See the results in the directory specified in the configuration above.')
 
-        # visualiseData(data_dir_path)
-        # print('\n\nData has been visualised.')
-        # print('All the charts are available in the directory specified in the configuration above.')
+        visualiseData(data_dir_path)
+        print('\n\nData has been visualised.')
+        print('All the charts are available in the directory specified in the configuration above.')
         models_dict = createSVRModels(data_dir_path)
         print("Models have been trained.")
         print("Messages generated during models adjusting are available in the file specified by the configuration.")
         predictValues(data_dir_path, models_dict)
         print("Predictions are finished.")
         print("Check the results in the results directory.")
-        # Test.mock()
     else:
         print('DATA_PATH variable is not set')
 

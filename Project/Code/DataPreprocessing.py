@@ -135,8 +135,8 @@ def ljseAPIStockIndex(data_dir_path: str) -> None:
         for month in range(1, 13):
             first = index
             while (index > 0 and not
-                  (datetime.strptime(stock_dates[index-1], "%Y-%m-%d").year > datetime.strptime(stock_dates[index], "%Y-%m-%d").year or
-                   datetime.strptime(stock_dates[index-1], "%Y-%m-%d").month > datetime.strptime(stock_dates[index], "%Y-%m-%d").month)):
+                   (datetime.strptime(stock_dates[index-1], "%Y-%m-%d").year > datetime.strptime(stock_dates[index], "%Y-%m-%d").year or
+                    datetime.strptime(stock_dates[index-1], "%Y-%m-%d").month > datetime.strptime(stock_dates[index], "%Y-%m-%d").month)):
                 index -= 1
             last = index
             change = (data["last_value"][last]/data["open_value"][first])*100 - 100
@@ -183,7 +183,8 @@ def investingAPIStockIndex(data_dir_path: str) -> None:
     preparedData.to_csv(filepath, index=False, header=False)
 
 
-def mergeData(data_dir_path: str, country_name: str, headers: Dict[int, str], number_of_files: int) -> None:
+def mergeData(data_dir_path: str, country_name: str, headers: Dict[int, str],
+              number_of_files: int) -> None:
     """
     Function that merges all prepared data from files: 1,2,3... It creates a csv file that is used
     later in the data analysis.
@@ -207,11 +208,11 @@ def prepareGeneralData(data_dir_path: str, stock_prices_filters: Dict[str, Calla
         data = pd.read_csv(temp_file_path, skiprows=1, header=None)
         general_df = pd.concat([general_df, data], axis=0)
 
-    generalFile = Path(data_dir_path + general_dict +  'general_data.csv')
+    generalFile = Path(data_dir_path + general_dict + 'general_data.csv')
     general_df.to_csv(generalFile, index=False, header=list(headers.values()))
 
 
-def prepareData(data_dir_path: str, country_name: str, expected_file_names: Dict[int, str], 
+def prepareData(data_dir_path: str, country_name: str, expected_file_names: Dict[int, str],
                 data_features_functions: Dict[int, Callable], stock_prices_filter: Callable,
                 new_csv_headers: Dict[int, str]) -> Tuple[bool, str]:
 
